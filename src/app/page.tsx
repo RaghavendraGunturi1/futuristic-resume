@@ -5,6 +5,8 @@ import { Card, CardContent } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/ui/Navbar";
+import Image from "next/image";
+
 
 function FuturisticResume() {
   useEffect(() => {
@@ -32,6 +34,14 @@ function FuturisticResume() {
           transition={{ duration: 1 }}
           className="text-center py-16"
         >
+          <Image
+            src="/profile.jpg"
+            alt="Raghavendra Gunturi"
+            width={150}
+            height={150}
+            className="mx-auto mb-6 rounded-full border-4 border-cyan-500 shadow-lg"
+          />
+
           <h1 className="text-5xl font-extrabold tracking-tight">
             Hi, I'm <span className="text-cyan-400">Raghavendra Gunturi</span>
           </h1>
@@ -59,15 +69,15 @@ function FuturisticResume() {
 
         {/* About Section */}
         <Section id="about" title="About Me" color="cyan">
-          <p>
-            I&rsquo;m a Computer Science student with a futuristic mindset and a drive to turn ideas into systems that matter.
-            Whether it&rsquo;s solving real-world problems or learning new technologies, I thrive at the intersection of creativity and logic.
+          <p className="text-gray-200">
+            I'm a Computer Science student with a futuristic mindset and a drive to turn ideas into systems that matter.
+            Whether its solving real-world problems or learning new technologies, I thrive at the intersection of creativity and logic.
             With every line of code, I aim to build tools that create real impact and inspire innovation.
           </p>
         </Section>
 
         {/* Experience */}
-        <Section id="experience" title="Experience & Highlights" color="purple">
+        <Section id="experience" title="Experience & Highlights" color="cyan">
           <ul className="list-disc list-inside space-y-4 text-gray-200">
             <li>🧠 Participated in <strong>Tech Trove 2K24</strong> – Coding Contest, Quiz, and Tech Debate at ACE Engineering College.</li>
             <li>🚀 Finalist at <strong>Ideathon 2025</strong> by ACE Venture Labs for pitching a visionary tech solution.</li>
@@ -111,7 +121,7 @@ function FuturisticResume() {
         </Section>
 
         {/* Skills */}
-        <Section id="skills" title="Technical Skills" color="green">
+        <Section id="skills" title="Technical Skills" color="cyan">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-sm">
             <SkillCard title="Languages" items={["Python", "C", "HTML/CSS", "JavaScript"]} />
             <SkillCard title="Frameworks/Tools" items={["Django", "Bootstrap", "Firebase", "Tailwind"]} />
