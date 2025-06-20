@@ -43,7 +43,7 @@ function FuturisticResume() {
           />
 
           <h1 className="text-5xl font-extrabold tracking-tight">
-            Hi, I'm <span className="text-cyan-400">Raghavendra Gunturi</span>
+            Hi, I&rsquo;m <span className="text-cyan-400">Raghavendra Gunturi</span>
           </h1>
           <p className="mt-3 text-xl text-gray-300">
             B.Tech CSE Student @ ACE Engineering College, Hyderabad
@@ -70,7 +70,7 @@ function FuturisticResume() {
         {/* About Section */}
         <Section id="about" title="About Me" color="cyan">
           <p className="text-gray-200">
-            I'm a Computer Science student with a futuristic mindset and a drive to turn ideas into systems that matter.
+            I&rsquo;m a Computer Science student with a futuristic mindset and a drive to turn ideas into systems that matter.
             Whether its solving real-world problems or learning new technologies, I thrive at the intersection of creativity and logic.
             With every line of code, I aim to build tools that create real impact and inspire innovation.
           </p>
@@ -138,7 +138,38 @@ function FuturisticResume() {
 }
 
 // Section Wrapper
-function Section({ id, title, color, children }: { id: string; title: string; color: string; children: React.ReactNode }) {
+function Section({
+  id,
+  title,
+  color,
+  children,
+}: {
+  id: string;
+  title: string;
+  color: "cyan" | "purple" | "green" | "pink"; // limit to allowed colors
+  children: React.ReactNode;
+}) {
+  const borderColors: Record<string, string> = {
+    cyan: "border-cyan-400",
+    purple: "border-purple-400",
+    green: "border-green-400",
+    pink: "border-pink-400",
+  };
+
+  const shadowColors: Record<string, string> = {
+    cyan: "shadow-cyan-500/20",
+    purple: "shadow-purple-500/20",
+    green: "shadow-green-500/20",
+    pink: "shadow-pink-500/20",
+  };
+
+  const textColors: Record<string, string> = {
+    cyan: "text-cyan-300",
+    purple: "text-purple-300",
+    green: "text-green-300",
+    pink: "text-pink-300",
+  };
+
   return (
     <motion.div
       id={id}
@@ -148,15 +179,20 @@ function Section({ id, title, color, children }: { id: string; title: string; co
       transition={{ duration: 0.8 }}
       className="max-w-5xl mx-auto mb-20"
     >
-      <Card className={`bg-black/30 backdrop-blur-lg border border-${color}-400 shadow-${color}-500/20 shadow-xl`}>
+      <Card
+        className={`bg-black/30 backdrop-blur-lg ${borderColors[color]} ${shadowColors[color]} shadow-xl`}
+      >
         <CardContent className="p-6">
-          <h2 className={`text-3xl font-semibold mb-6 text-${color}-300`}>{title}</h2>
+          <h2 className={`text-3xl font-semibold mb-6 ${textColors[color]}`}>
+            {title}
+          </h2>
           {children}
         </CardContent>
       </Card>
     </motion.div>
   );
 }
+
 
 // Project Item
 function ProjectItem({ name, desc, tech }: { name: string; desc: string; tech: string }) {
